@@ -1,0 +1,41 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+            <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="">
+            <h6>All Products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img src="https://static.thenounproject.com/png/4500816-200.png" alt="">
+                <h6>Electronics</h6>
+                </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/210/296/small/woman-and-man-perfect-match-rgb-color-icon-vector.jpg" alt="">
+                <h6>Fashion</h6>
+                </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img src="https://m.media-amazon.com/images/I/71BQM2Z6QzL._UY500_.jpg" alt="">
+                <h6>Jewels</h6>
+                </a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.title}}</h5>
+                <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{item.description}}</p>
+                <p><strong>Price:</strong> ${{item.price}}</p>
+                <button class="btn btn-primary" (click)="addtoCart(item)">Add to cart</button>
+        </div>
+        </ng-container>
+    </div>
+</div>
